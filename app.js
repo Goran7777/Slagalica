@@ -47,3 +47,12 @@ Slagalica.prototype.napraviPokusaj = function (pokusaj) {
 
 const igra1 = new Slagalica("vrabac", 5);
 recHtml.textContent = igra1.vratiSlagalicu();
+pokusajiHtml.textContent = `Ostalo pokusaja: ${igra1.ostaloPokusaja}`;
+window.addEventListener("keypress", function (e) {
+  let recHtml = document.getElementById("rec");
+  let pokusajHtml = document.getElementById("pokusaji");
+  const pokusaj = String.fromCharCode(e.charCode);
+  igra1.napraviPokusaj(pokusaj);
+  recHtml.textContent = igra1.vratiSlagalicu();
+  pokusajHtml.textContent = `Ostalo pokusaja: ${igra1.ostaloPokusaja}`;
+});
